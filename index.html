@@ -1,0 +1,71 @@
+<!--
+This file is part of the mbajdik.github.io Github Pages repository
+Copyright (C) 2023  github.com/mbajdik
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <https://www.gnu.org/licenses/>.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="Content-type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=0.85">
+        <meta http-equiv="expires" content="0">
+        <link rel="stylesheet" href="style.css">
+        <script src="info/metadata.js"></script>
+        <script src="script.js"></script>
+        <title id="__pagetitle"></title>
+    </head>
+    <body id="__body" onload="initialize();">
+        <div id="__title"></div>
+        <div id="__content"></div>
+        <div id="__details">   
+            <input style="display: none;" type="checkbox" id="__details_window_state" autocomplete="off">
+            <div id="__internal_details">
+                <div id="__internal_details_description"></div>
+                <div id="__internal_details_title_bar"></div>
+                <button onclick="closeEntry();" id="__internal_details_close">
+                    <svg width="20" height="20" version="1.1">
+                        <line x1="0" x2="20" y1="0" y2="20" stroke-width="5"/>
+                        <line x1="0" x2="20" y1="20" y2="0" stroke-width="5"/>
+                    </svg>
+                </button>
+                <button onclick="prevEntry();" class="__navbutton" id="__backbutton">
+                    <svg width="15" height="20" version="1.1">
+                        <line x1="15" x2="0" y1="0" y2="10" stroke-width="5"/>
+                        <line x1="15" x2="0" y1="20" y2="10" stroke-width="5"/>
+                    </svg>
+                </button>
+                <button onclick="nextEntry();" class="__navbutton" id="__forwardbutton">
+                    <svg width="15" height="20" version="1.1">
+                        <line x1="0" x2="15" y1="0" y2="10" stroke-width="5"/>
+                        <line x1="0" x2="15" y1="20" y2="10" stroke-width="5"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <div id="__overlay">
+            <input style="display: none;" type="checkbox" id="__overlay_window_state" autocomplete="off">
+            <div id="__internal_overlay">
+                <div id="__internal_overlay_content"></div>
+                <button onclick="closeContent();" id="__internal_overlay_close" for="__overlay_window_state">
+                    <svg width="20" height="20" version="1.1">
+                        <line x1="0" x2="20" y1="0" y2="20" stroke-width="5"/>
+                        <line x1="0" x2="20" y1="20" y2="0" stroke-width="5"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </body>
+</html>

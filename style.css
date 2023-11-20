@@ -1,0 +1,557 @@
+/*
+    This file is part of the mbajdik.github.io Github Pages repository
+    Copyright (C) 2023  github.com/mbajdik
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <https://www.gnu.org/licenses/>.
+*/
+
+/*
+ *  ####  #####  #####  #   #  ####
+ * #      #        #    #   #  #   #
+ *  ###   #####    #    #   #  ####
+ *     #  #        #    #   #  #
+ * ####   #####    #     ###   #
+*/
+/*
+ * Setting up the space
+*/
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: #222222;
+    color: #ffffff;
+
+    /*IOS support*/
+    -webkit-text-size-adjust: 100%;
+
+    --black: #101010;
+    --dark-gray: #151515;
+    --gray: #222222;
+    --near-white: #cccccc;
+    --white: #ffffff;
+    --entry-hover: #aaffff;
+    --anchor-default: #66bbbb;
+    --light-red: #ff6666;
+    --dark-red: #aa3333;
+    --light-cyan: #44dddd;
+    --dark-cyan: #229999;
+
+    --attachment-yt-default: #450000;
+    --attachment-yt-hover: #700000;
+    --attachment-img-default: #004500;
+    --attachment-img-hover: #007000;
+    --attachment-link-default: #001045;
+    --attachment-link-hover: #002070;
+}
+
+/*
+ * Tags for displaying content type and category
+*/
+.__tag {
+    /*positioning*/
+    padding: 1rem;
+    height: 1rem;
+    position: relative;
+    top: calc((5rem - 3rem - (2 * 4px)) / 2);
+
+    /*color and design*/
+    background-color: var(--black);
+    border: 4px solid var(--gray);
+    background-color: var(--black);
+    border-radius: 2rem;
+    font-weight: bold;
+
+    /*final touches*/
+    transition: 0.3s;
+    cursor: default;
+}
+
+/*
+ * Fix the f***ing css (who made it should be ashamed of themselves)
+*/
+.__tag p {
+    position: relative;
+    top: -110%;
+}
+
+/*
+ * Border coloring when hovered (useless but looks good)
+*/
+.__tag:hover {
+    border-color: var(--near-white);
+}
+
+/*
+ * Change anchors
+*/
+a, a:visited {
+    /*positioning*/
+    cursor: pointer;
+    text-decoration: none;
+
+    /*design*/
+    transition: 0.3s;
+    color: var(--anchor-default);
+}
+
+/*
+ * Add hover effect
+*/
+a:hover, a:visited:hover {
+    color: var(--entry-hover);
+    text-decoration: underline;
+}
+
+
+
+/*
+ * #   #  #####  #   #  #   #
+ * ## ##  #      ##  #  #   #
+ * # # #  #####  # # #  #   #
+ * #   #  #      #  ##  #   #
+ * #   #  #####  #   #   ###
+*/
+body {
+    margin: 0;
+    overflow-y: hidden;
+}
+
+/*
+ * Styling main page
+*/
+#__content {
+    /*positioning*/
+    position: absolute;
+    top: 6rem;
+    left: 0;
+
+    /*padding for the text*/
+    padding-inline: 2rem;
+    padding-bottom: 2rem;
+
+    /*dimensions*/
+    height: calc(var(--vh, 1vh) * 100 - 6rem - 2rem);
+    width: calc(var(--vw, 1vw) * 100 - 4rem);
+
+    /*avoiding overflowing text*/
+    overflow-y: auto;
+    word-wrap: break-word;
+}
+
+/*
+ * Set cursor for the titles on the main page
+*/
+.__category_title {
+    cursor: default;
+}
+
+/*
+ * Set style cursor for the links on the main page
+*/
+.__details_opener {
+    /*positioning*/
+    cursor: pointer;
+    margin-left: 5rem;
+    margin-bottom: -1rem;
+    text-indent: -2rem;
+
+    /*design*/
+    transition: 0.3s;
+}
+
+/*
+ * Fancy hover color
+*/
+.__details_opener:hover {
+    color: var(--entry-hover);
+}
+
+/*
+ * The title
+*/
+#__title {
+    /*positioning*/
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    /*padding for the text*/
+    padding-left: 2rem;
+    padding-right: 2rem;
+
+    /*dimensions*/
+    height: 5rem;
+    width: calc(var(--vw, 1vw) * 100 - 4rem);
+
+    /*design*/
+    background-color: var(--black);
+    border-bottom: 4px solid var(--dark-gray);
+    
+    /*phone-proofness*/
+    overflow-x: auto;
+    white-space: nowrap;
+    overflow-y: hidden;
+}
+
+/*
+ * Make all elements appear inline
+*/
+#__title * {
+    display: inline-block;
+    margin-inline: 0.5rem;
+}
+
+
+
+/*
+ * ####   #####  #####    #    #  #       ####
+ * #   #  #        #     # #   #  #      #   
+ * #   #  #####    #    #   #  #  #       ###
+ * #   #  #        #    #####  #  #          #
+ * ####   #####    #    #   #  #  #####  ####
+*/
+/*
+ * Hide stuff
+*/
+#__internal_details {
+    display: none;
+}
+
+
+/*
+ * Basic styling of the window
+*/
+#__details_window_state:checked ~ #__internal_details {
+    /*display when needed with right dimensions*/
+    display: block;
+
+    /*positioning*/
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    /*dimensions*/
+    width: calc(var(--vw, 1vw) * 100);
+    height: calc(var(--vh, 1vh) * 100);
+
+    /*colors and design*/
+    background-color: var(--gray);
+    color: var(--white);
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+/*
+ * Close button
+*/
+#__internal_details_close {
+    position: absolute;
+    margin: 0px;
+    top: 0rem;
+    right: 0rem;
+    padding: calc(20px);
+    background-color: var(--black);
+    border-top: 4px solid var(--black);
+    border-right: 4px solid var(--black);
+    border-bottom: 4px solid var(--dark-gray);
+    border-left: 4px solid var(--dark-gray);
+    border-bottom-left-radius: 2rem;
+    stroke: var(--white);
+    transition: 0.3s;
+}
+
+/*
+ * Close button hover color change (who even uses that button?)
+*/
+#__internal_details_close:hover {
+    stroke: var(--light-red);
+    border-color: var(--dark-red);
+}
+
+/*
+ * Title bar of description
+*/
+#__internal_details_title_bar {
+    /*positioning*/
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    /*padding for the text*/
+    padding-left: 2rem;
+    padding-right: 2rem;
+
+    /*dimensions*/
+    height: 5rem;
+    width: calc(var(--vw, 1vw) * 100 - 4rem - 5rem);
+
+    /*design*/
+    background-color: var(--black);
+    border-bottom: 4px solid var(--dark-gray);
+    border-right: 4px solid var(--dark-gray);
+    border-bottom-right-radius: 2.5rem;
+    
+    /*phone-proofness*/
+    overflow-x: auto;
+    white-space: nowrap;
+    overflow-y: hidden;
+}
+
+/*
+ * Make added tags look good
+*/
+#__internal_details_title_bar * {
+    display: inline-block;
+    margin-inline: 0.5rem;
+}
+
+/*
+ * Description part of the details
+*/
+#__internal_details_description {
+    /*positioning*/
+    position: absolute;
+    top: 6rem;
+    left: 0;
+
+    /*padding for the text*/
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-bottom: 2rem;
+
+    /*dimensions*/
+    height: calc(var(--vh, 1vh) * 100 - 8rem);
+    width: calc(var(--vw, 1vw) * 100 - 4rem);
+
+    /*avoiding overflowing text*/
+    overflow-y: auto;
+    word-wrap: break-word;
+}
+
+/*
+ * Make h3 a little less agressive
+*/
+#__internal_details_description h3, #__internal_details_description  h4 {
+    font-weight: normal;
+}
+
+/*
+ * Make list not have a huge margin above
+*/
+#__internal_details_description ul {
+    margin-top: 0rem;
+}
+
+/*
+ * Close button
+*/
+.__navbutton {
+    margin: 0px;
+    position: absolute;
+    padding: calc(20px);
+    padding-bottom: calc(15px);
+    background-color: var(--black);
+    stroke: var(--white);
+    transition: 0.3s;
+}
+
+/*
+ * Close button hover color change (who even uses that button?)
+*/
+#__backbutton:hover, #__forwardbutton:hover {
+    stroke: var(--light-cyan);
+    border-color: var(--dark-cyan);
+}
+
+#__backbutton {
+    bottom: 0rem;
+    left: 0rem;
+    border-bottom: 4px solid var(--black);
+    border-left: 4px solid var(--black);
+    border-top: 4px solid var(--dark-gray);
+    border-right: 4px solid var(--dark-gray);
+    border-top-right-radius: 2rem;
+}
+
+#__forwardbutton {
+    float: right;
+    bottom: 0rem;
+    right: 0rem;
+    border-bottom: 4px solid var(--black);
+    border-right: 4px solid var(--black);
+    border-top: 4px solid var(--dark-gray);
+    border-left: 4px solid var(--dark-gray);
+    border-top-left-radius: 2rem;
+}
+
+
+
+
+/*
+ *  ###   #   #  #####  ####   #        #    #   #   ####
+ * #   #  #   #  #      #   #  #       # #    # #   #
+ * #   #  #   #  #####  ####   #      #   #    #     ###
+ * #   #   # #   #      #  #   #      #####    #        #
+ *  ###     #    #####  #   #  #####  #   #    #    ####
+ *
+ * Mostly copied from the details part
+*/
+/*
+ * Hide stuff
+*/
+#__internal_overlay {
+    display: none;
+}
+
+
+/*
+ * Basic styling of the window
+*/
+#__overlay_window_state:checked ~ #__internal_overlay {
+    /*display when needed with right dimensions*/
+    display: block;
+
+    /*positioning*/
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    /*dimensions*/
+    width: calc(var(--vw, 1vw) * 100);
+    height: calc(var(--vh, 1vh) * 100);
+
+    /*colors and design*/
+    background-color: rgb(34, 34, 34, 0.8);
+    color: var(--white);
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+/*
+ * Close button
+*/
+#__internal_overlay_close {
+    position: absolute;
+    margin: 0px;
+    top: 0rem;
+    right: 0rem;
+    padding: calc(20px);
+    background-color: var(--black);
+    border-top: 4px solid var(--black);
+    border-right: 4px solid var(--black);
+    border-bottom: 4px solid var(--dark-gray);
+    border-left: 4px solid var(--dark-gray);
+    border-bottom-left-radius: 2rem;
+    stroke: var(--white);
+    transition: 0.3s;
+}
+
+/*
+ * Close button hover color change (who even uses that button?)
+*/
+#__internal_overlay_close:hover {
+    stroke: var(--light-red);
+    border-color: var(--dark-red);
+}
+
+#__internal_overlay_content {
+    display: grid;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+.__attachments * {
+    display: inline-block;
+    margin-inline-end: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.__attachment {
+    /*positioning*/
+    padding: 1rem;
+    height: 1rem;
+    position: relative;
+    top: calc((5rem - 3rem - (2 * 4px)) / 2);
+
+    /*color and design*/
+    background-color: var(--black);
+    border: 4px solid var(--gray);
+    border-radius: 2rem;
+    font-weight: bold;
+
+    /*final touches*/
+    transition: 0.3s;
+    cursor: default;
+}
+
+/*
+ * Fix the f***ing css (who made it should be ashamed of themselves)
+*/
+.__attachment p {
+    position: relative;
+    top: -110%;
+}
+
+/*
+ * Border coloring when hovered (useless but looks good)
+*/
+.__attachment:hover {
+    border-color: var(--near-white);
+}
+
+.__attachment_yt {
+    border-color: var(--attachment-yt-default);
+}
+
+.__attachment_yt:hover {
+    border-color: var(--attachment-yt-hover);
+}
+
+.__attachment_img {
+    border-color: var(--attachment-img-default);
+}
+
+.__attachment_img:hover {
+    border-color: var(--attachment-img-hover);
+}
+
+.__attachment_link {
+    border-color: var(--attachment-link-default);
+}
+
+.__attachment_link:hover {
+    border-color: var(--attachment-link-hover);
+}
+
+#__ytvideo {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    max-width: 100%;
+    max-height: 100vh;
+    margin: auto;
+}
+
+#__image {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    max-width: 100%;
+    max-height: 100vh;
+    margin: auto;
+}
